@@ -1,0 +1,44 @@
+.suggestions {
+    width: 100%;
+    height: 40vh;
+    background-color: azure;
+    border-radius: 3vh;
+}
+
+a {
+    cursor: pointer;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+
+.sb {
+    width: 5px;
+    font-weight: 500;
+}
+
+
+.fs {
+    font-size: .8rem;
+    font-weight: 500;
+}
+
+.hd {
+    font-size: .9rem;
+}
+
+.txt {
+    font-size: .7rem;
+}
+
+i {
+    font-size: 1.2rem;
+}
+
+.dp {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 10vh;
+}

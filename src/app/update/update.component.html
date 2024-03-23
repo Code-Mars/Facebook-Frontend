@@ -1,0 +1,96 @@
+<div #top class="update container-fluid shadow d-flex flex-column p-3 poppins" id="upp">
+    <div class="pic mb-4 d-flex align-items-center justify-content-center gap-4">
+        <div class="back cursor" (click)="back()">
+            <i class="bi bi-arrow-left-circle fs-3"></i>
+        </div>
+        <div *ngIf="id==showId" class=" cover d-flex flex-column align-items-center justify-content-center edit cursor" onclick="document.getElementById('image').click()">
+            <div class="ico"><i class="bi bi-pencil-square fs-2"></i></div>
+            <img  class="dp darker" src="http://localhost:9300/data/{{map.get(showId)?.profilePicture}}" alt="">
+        </div>
+        <div *ngIf="id!=showId" class=" cover d-flex flex-column align-items-center justify-content-center ">
+            <img  class="dp" src="http://localhost:9300/data/{{map.get(showId)?.profilePicture}}" alt="">
+        </div>
+        <div style="height: 100%;">
+        <div class=" d-flex flex-column shadow align-items-start bg-grey radius mt-2 gap-1 p-2 px-3 justify-content-center">
+            <div class="fw-semibold fs-4 m-0 p-0">{{map.get(showId)?.fullName}}</div>
+            <div class="txt fs-5">@{{map.get(showId)?.username}}</div>
+            <div class="container-fluid p-0 d-flex text-center justify-content-evenly gap-3 bg-grey">
+                <div class="d-flex flex-column">
+                    <span class="heading">250</span>
+                    <span class="small">Post</span>
+                </div>
+                <div class="d-flex flex-column">
+                    <span class="heading">2022</span>
+                    <span class="small">Friends</span>
+                </div>
+                <div class="d-flex flex-column">
+                    <span class="heading">590</span>
+                    <span class="small">Follows</span>
+                </div>
+            </div>
+            
+            <div *ngIf="!show" (click)="change()" type="button" style="width: 100%;" class="btn btn-primary btn-sm">
+                Full Profile
+            </div>
+            <div *ngIf="id==showId && show &&!save" (click)="edit()" type="button" style="width: 100%;" class="btn btn-warning btn-sm">
+                Edit Profile
+            </div> 
+            <div *ngIf="id==showId && !message && save" (click)="update()" type="button" style="width: 100%;" class="btn btn-warning btn-sm">
+                Save Changes
+            </div> 
+            <div *ngIf="message"  type="button" style="width: 100%;" class="btn btn-success btn-sm">
+                Saved
+            </div> 
+        </div>
+    </div>
+    </div>
+    
+    <div *ngIf="show" class="px-4 d-flex flex-column gap-2">
+        <div class=" row d-flex align-items-center ">
+            <label for="bio" class="col-sm-2 col-form-label fw-bold">Bio</label>
+            <div class="col-sm-10">
+              <input type="text" [readonly]="!canEdit" [class]="{'form-control-plaintext': !canEdit, ' form-control form-control-input rounded':canEdit}" class=" form-control small" id="bio"
+              [(ngModel)]="bio" value="{{map.get(showId)?.bio ||'Software Engineer | Infosys'}}">
+            </div>
+          </div>
+          <div *ngIf="id==showId" class="row d-flex align-items-center">
+            <label for="email" class="col-sm-2 col-form-label fw-bold">Email</label>
+            <div class="col-sm-10">
+              <input type="text" [readonly]="!canEdit" [class]="{'form-control-plaintext': !canEdit, 'form-control ':canEdit}" class=" form-control small" [(ngModel)]="email" id="email" value="{{map.get(showId)?.email}}">
+            </div>
+          </div>
+          <div class="row d-flex align-items-center">
+            <label for="gender" class="col-sm-2 col-form-label fw-bold">Gender</label>
+            <div class="col-sm-10">
+                <input *ngIf="!canEdit" type="text" [readonly]='true'  class="small form-control-plaintext" value="{{map.get(showId)?.gender}}">
+                <div *ngIf="canEdit">
+                    <div class="d-flex ">
+                        <div class="d-flex me-2 justify-content-between input-group-text flex-fill">
+                            Female
+                            <input class="form-isInvalid-input mt-0" [(ngModel)]="gender" name="gender" id="gender" type="radio"
+                                value="FEMALE">
+                        </div>
+                        <div class="d-flex me-2 justify-content-between input-group-text flex-fill">
+                            Male
+                            <input class="form-isInvalid-input mt-0" [(ngModel)]="gender" name="gender" id="gender" type="radio" value="MALE">
+                        </div>
+                        <div class="d-flex justify-content-between input-group-text flex-fill">
+                            Others
+                            <input class="form-isInvalid-input " [(ngModel)]="gender" name="gender" id="gender" type="radio" value="OTHERS">
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="row d-flex align-items-center">
+            <label for="dob" class="col-sm-2 col-form-label fw-bold">DOB</label>
+            <div class="col-sm-10">
+                <input *ngIf="!canEdit" type="text" readonly class=" small form-control-plaintext" id="dob" value="{{map.get(showId)?.dob|date }}">
+                <input [(ngModel)]="dob" *ngIf="canEdit" type="date"   class="small form-control-input form-control" id="dob" value="{{map.get(showId)?.dob}}">
+            </div>
+          </div>
+    </div>
+</div>
+
+<input type="file" class="form-control visually-hidden" name="image" id="image" accept="image/*" multiple
+ (change)="onChange($event)">

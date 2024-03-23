@@ -1,0 +1,58 @@
+<div *ngFor="let p of posts;let i=index" class="feed shadow d-flex flex-column p-3 gap-2 mb-4">
+    <div class="d-flex gap-3 justify-content-between align-items-center">
+        <div class="d-flex gap-2 align-items-center cursor" (click)="change(p.userId);">
+            <img class="dp" src="http://localhost:9300/data/{{map.get(p.userId)?.profilePicture}}" alt="">
+            <div class="d-flex flex-column">
+                <span class="fw-semibold hd">{{p.sharedFrom}}</span>
+                <span class="txt" style="color: darkgrey;">{{getTimeDifference(p.timestamp)}} ago</span>
+            </div>
+        </div>
+        <button class="btn btn-sm p-0 m-0" type="button" id="dropdownMenu2"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-three-dots-vertical"></i>
+    </button>
+        <ul *ngIf="p.userId==id" class="dropdown-menu p-1" aria-labelledby="dropdownMenu2">
+            <li><button (click)="editPost(i)" class="dropdown-item px-0 py-0">Edit</button></li>
+            <li><button (click)="deletePost(p.id)" class="dropdown-item px-0 py-0">Delete</button></li>
+        </ul>
+        <ul *ngIf="p.userId!=id" class="dropdown-menu p-1" aria-labelledby="dropdownMenu2">
+            <li><button  class="dropdown-item px-0 py-0">Report</button></li>
+        </ul>
+    </div>
+    <div *ngIf="!edit[i]" class="caption" [innerHTML]="parseHashtags(p.postText)"></div>
+    <div *ngIf="edit[i]" class="d-flex gap-1" >   <input type="text" class=" caption form-control small" id="caption" [(ngModel)]="p.postText" value="{{p.postText}}"><button (click)="savePost(i)" class="btn btn-outline-primary caption">Save</button></div>
+    <div class="d-flex justify-content-center" (dblclick)="like(i, p.id)">
+        <img class="pic" src="http://localhost:9300/data/{{p.postImage}}" alt="">
+    </div>
+    <div class="d-flex justify-content-between align-items-center icon mx-2">
+        <div class="d-flex gap-3 sz align-items-center">
+            <span id="like" (click)="like(i, p.id)"><i *ngIf="!p.hasLiked" class="bi bi-heart fw-bold"></i><i
+                    *ngIf="p.hasLiked" class="bi bi-heart-fill text-danger fw-bold "></i> {{p.likes?p.likes.length:0}}</span>
+            <span id="comment" (click)="toggleComment(i);"><i *ngIf="!comment[i]" class="bi bi-chat-dots"> </i><i *ngIf="comment[i]" class="bi bi-chat-dots-fill text-primary"></i> {{p.comments?p.comments.length:0}}</span>
+        </div>
+        <span id="comment"><i class="bi bi-send-fill"></i></span>
+    </div>
+    <div *ngIf="comment[i]">
+    <div *ngFor="let c of p.comments" id="commentSection" class="d-flex gap-2 align-items-center justify-content-between m-1 px-1">
+        <div class="d-flex gap-2 align-items-center">
+            <img class="cm" src="http://localhost:9300/data/{{map.get(c.commentedBy)?.profilePicture}}" alt="">
+            <div class="d-flex flex-column">
+                <div class="d-flex gap-2 align-items-center">
+                    <span class="fs">{{map.get(c.commentedBy)?.fullName}}</span>
+                    <span class="txt " style="color: darkgrey;">{{getTimeDifference(c.timeStamp)}} ago</span>
+                </div>
+                <div class="cmmt txt">
+                    {{c.commentText}}
+                </div>
+            </div>
+        </div>
+        <i (click)="hover($event)"   class="bi bi-heart fw-bold"></i>
+    </div>
+    </div>
+    <div class="d-flex gap-3 align-items-center">
+        <img class="dp" src="http://localhost:9300/data/{{map.get(id)?.profilePicture}}" alt="">
+        <input *ngIf="added" class="form-control input-sm rounded-pill inp" type="text" name="commentText" [(ngModel)]="commentText"  placeholder="Share something...">
+        <button *ngIf="added" class="btn btn-outline-primary btn-sm rounded-pill bttn" (click)="addComment(p.id, i)">Comment</button>
+        <div *ngIf="!added" id="added" class="d-flex align-items-center">Comment added <i class="bi bi-check-all text-success fs-3"></i></div>
+    </div>
+</div>

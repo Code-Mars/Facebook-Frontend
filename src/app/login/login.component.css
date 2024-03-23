@@ -1,0 +1,42 @@
+div[class="container-fluid"]{
+    background-color: #f0f2f5;
+    height: 100vh;
+    width: 100vw;
+}
+.right{
+    width: 85%;
+}
+.grey{
+    background-color: #f5f6f7;
+}
+::placeholder { /* Edge 12 -18 */
+    color: #93abb9;
+  }
+
+#smallTxt{
+    font-size:medium;
+    font-weight: normal;
+}
+#forget{
+    text-decoration: none;
+    font-size: small;
+}
+#forget:hover{
+    text-decoration: underline;
+}
+.row{
+    height: 100%;
+}
+button[type="submit"],
+button[type="reset"]{
+    width: 48%;
+}
+:root{
+    --main-bg-color:red;
+    --border-color:red;
+    --font-color:red;
+}
+#buttonContainer {
+    display: block;
+    width: 200px
+}

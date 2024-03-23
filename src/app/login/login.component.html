@@ -1,0 +1,200 @@
+<div class="container-fluid">
+    <div class="row d-flex align-items-center justify-content-evenly">
+        <div class="col-sm-4">
+            <div class="left d-flex flex-column mx-auto">
+                <h1 class="display-2 fw-bold text-primary poppins">facebook</h1>
+                <p class="fs-3 fw-normal">Facebook helps you connect and share with the people in your life.</p>
+            </div>
+        </div>
+
+        <!-- Login COmp -->
+        <div class="col-sm-4 ">
+            <div class="d-flex flex-column mx-auto align shadow p-3 mb-5 bg-body rounded right">
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="mb-3">
+                        <input type="text" class="form-control p-2" id="loginUsername" placeholder="Username"
+                            formControlName="username">
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="password" class="form-control p-2" id="loginPassword" formControlName="password"
+                            placeholder="Password">
+                    </div>
+                    <div *ngIf="loginErrorMessage" class="alert alert-danger fw-bold text-center" role="alert">
+                        {{loginErrorMessage}}
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary fs-5 fw-bold" style="width: 100%;">Log in</button>
+                    </div>
+                </form>
+                <a href="#" class="link-primary text-center" data-bs-toggle="modal" data-bs-target="#resetPassword"
+                    id="forget">Forgotten password?</a>
+                <hr>
+                <button class="btn btn-outline-success mx-auto my-2 fw-bold" data-bs-toggle="modal"
+                    data-bs-target="#createAccount">Create new account</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Reset Password -->
+<div class="modal fade" id="resetPassword" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title fw-bold" id="exampleModalLabel">Reset Your Password</h3>
+                <button type="button" class="btn-close" id="close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="text-center">
+                <span *ngIf="resetErrorMessage" class="text-danger fw-bold">{{resetErrorMessage}}</span>
+                <span *ngIf="resetSuccessMessage" class="text-success fw-bold">{{resetSuccessMessage}}</span>
+            </div>
+            <form [formGroup]="resetForm" (ngSubmit)="resetPassword()">
+                <div class="modal-body">
+                    <div class="form-group mb-2">
+                        <input type="text" class="form-control grey" [class.is-invalid]="invalid('username')"
+                            id="username" placeholder="Username" formControlName="username"
+                            [class.is-valid]="valid('username')">
+                        <div *ngIf="invalid('username')" id="usernameError" class="invalid-feedback">
+                            Choose a valid username!
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <input type="email" class="form-control grey" [class.is-invalid]="invalid('email')"
+                            [class.is-valid]="valid('email')" id="email" placeholder="Email address"
+                            formControlName="email">
+                        <div *ngIf="invalid('email')" id="emailError" class="invalid-feedback">
+                            Enter a valid email!
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <input type="password" class="form-control grey" [class.is-invalid]="invalid('password')"
+                            [class.is-valid]="valid('password')" id="password" placeholder="Password"
+                            formControlName="password">
+                        <div *ngIf="invalid('password')" id="passwordError" class="invalid-feedback">
+                            Password must have a capital, small, numric and special characters!
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <input type="password" class="form-control grey" id="cnfPassword"
+                            [class.is-invalid]="resetForm.controls['cnfPassword'].dirty && resetForm.controls['cnfPassword'].value!=resetForm.controls['password'].value"
+                            [class.is-valid]="resetForm.controls['cnfPassword'].dirty && resetForm.controls['cnfPassword'].value==resetForm.controls['password'].value"
+                            placeholder="Confirm password" formControlName="cnfPassword">
+                        <div *ngIf="resetForm.controls['cnfPassword'].dirty && resetForm.controls['cnfPassword'].value!=resetForm.controls['password'].value"
+                            id="cnfPasswordError" class="invalid-feedback">
+                            Passwords do not match!
+                        </div>
+                    </div>
+                </div>
+                <!-- <br> -->
+                <div class="modal-footer mb-0 d">
+                    <button
+                        [disabled]="resetForm.invalid || resetForm.controls['cnfPassword'].value!=resetForm.controls['password'].value"
+                        type="submit" class="btn btn-success fw-bold mb-0">Submit</button>
+                    <button type="reset" class="btn btn-warning fw-bold mb-0">Reset</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="createAccount" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title fw-bold" id="exampleModalLabel">Sign Up</h3>
+                <button type="button" class="btn-close" id="close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="text-center">
+                <span *ngIf="errorMessage" class="text-danger fw-bold">{{errorMessage}}</span>
+                <span *ngIf="successMessage" class="text-success fw-bold">{{successMessage}}</span>
+            </div>
+            <form [formGroup]="registerForm" (ngSubmit)="register()">
+                <div class="modal-body">
+                    <div class="form-group mb-2">
+                        <input type="text" class="form-control grey" [class.is-invalid]="isInvalid('fullName')"
+                            [class.is-valid]="isValid('fullName')" id="fullName" placeholder="Full name"
+                            formControlName="fullName">
+                        <div *ngIf="isInvalid('fullName')" id="fullNameError" class="invalid-feedback">
+                            Enter a valid name! eg: John Singh
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <input type="text" class="form-control grey" [class.is-invalid]="isInvalid('username')"
+                            id="username" placeholder="Username" formControlName="username"
+                            [class.is-valid]="isValid('username')">
+                        <div *ngIf="isInvalid('username')" id="usernameError" class="invalid-feedback">
+                            Choose a valid username!
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <input type="email" class="form-control grey" [class.is-invalid]="isInvalid('email')"
+                            [class.is-valid]="isValid('email')" id="email" placeholder="Email address"
+                            formControlName="email">
+                        <div *ngIf="isInvalid('email')" id="emailError" class="invalid-feedback">
+                            Enter a valid email!
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-2">
+                        <input type="password" class="form-control grey" [class.is-invalid]="isInvalid('password')"
+                            [class.is-valid]="isValid('password')" id="password" placeholder="Password"
+                            formControlName="password">
+                        <div *ngIf="isInvalid('password')" id="passwordError" class="invalid-feedback">
+                            Password must have a capital, small, numric and special characters!
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <input type="password" class="form-control grey" id="cnfPassword"
+                            [class.is-invalid]="registerForm.controls['cnfPassword'].dirty && registerForm.controls['cnfPassword'].value!=registerForm.controls['password'].value"
+                            [class.is-valid]="registerForm.controls['cnfPassword'].dirty && registerForm.controls['cnfPassword'].value==registerForm.controls['password'].value"
+                            placeholder="Confirm password" formControlName="cnfPassword">
+                        <div *ngIf="registerForm.controls['cnfPassword'].dirty && registerForm.controls['cnfPassword'].value!=registerForm.controls['password'].value"
+                            id="cnfPasswordError" class="invalid-feedback">
+                            Passwords do not match!
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="dob" class="smallLabel">Date of Birth</label>
+                        <input type="date" class="form-control" [class.is-invalid]="isInvalid('dob')" id="dob"
+                            formControlName="dob" [class.is-valid]="isValid('dob')">
+                        <div *ngIf="isInvalid('dob')" id="dobError" class="invalid-feedback">
+                            Your age must be greater than 13!
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label class="smallLabel">Gender</label>
+                        <div class="d-flex ">
+                            <div class="d-flex me-2 justify-content-between input-group-text flex-fill">
+                                Female
+                                <input class="form-isInvalid-input mt-0" name="gender" id="gender" type="radio"
+                                    value="FEMALE" formControlName="gender">
+                            </div>
+                            <div class="d-flex me-2 justify-content-between input-group-text flex-fill">
+                                Male
+                                <input class="form-isInvalid-input mt-0" name="gender" id="gender" type="radio"
+                                    value="MALE" formControlName="gender">
+                            </div>
+                            <div class="d-flex justify-content-between input-group-text flex-fill">
+                                Others
+                                <input class="form-isInvalid-input " name="gender" id="gender" type="radio"
+                                    value="OTHERS" formControlName="gender">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <br> -->
+                <div class="modal-footer mb-0 d">
+                    <button
+                        [disabled]="registerForm.invalid ||registerForm.controls['cnfPassword'].value!=registerForm.controls['password'].value"
+                        type="submit" class="btn btn-success fw-bold mb-0">Sign Up</button>
+                    <button type="reset" class="btn btn-warning fw-bold mb-0">Reset</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

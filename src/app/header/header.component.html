@@ -1,0 +1,17 @@
+<div>
+    <nav class=" header navbar navbar-expand-md navbar-light" >
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <div class="left">
+                <a class="navbar-brand text-primary fw-bold fs-2  logo1" href="#">facebook</a>
+                <a href="" class="logo2"><i class="bi bi-facebook text-primary sz"></i></a>
+            </div>
+            <div class="right d-flex gap-4 align-items-center">
+                <div class="d-flex flex-row align-items-center gap-2 cursor" (click)="change(profile.id)">
+                    <img class="pic" src="http://localhost:9300/data/{{profile.profilePicture}}" alt="img">
+                    <div class="fw-bold">{{profile.fullName}}</div>
+                </div>
+                <a (click)="logout()" class="fw-bold">Logout</a>
+            </div>
+        </div>
+    </nav>
+</div>

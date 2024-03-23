@@ -1,0 +1,39 @@
+<div class="main container-fluid p-0 poppins">
+    <app-header></app-header>
+    <div class="container-fluid d-flex gap-2 justify-content-evenly page">
+        <div class="left d-flex flex-column gap-2 p-2">
+            <div class="profile">
+                <app-profile></app-profile>
+            </div>
+            <div class="friends">
+                <app-friends></app-friends>
+            </div>
+        </div>
+        <div class="middle d-flex flex-column gap-2 p-2 pb-0" id="sb">
+            <div *ngIf="showId==-1" class="post mb-2">
+                <app-post></app-post>
+            </div>
+            <div *ngIf="showId!=-1" class="update">
+                <app-update></app-update>
+            </div>
+            <div >
+                <app-sort></app-sort>
+            </div>
+    
+            <div class="feed">
+                <app-feed></app-feed>
+            </div>
+        </div>
+        <div class="right d-flex flex-column gap-2 p-2" id="right">
+            <!-- <div class="activity"> -->
+                <app-activity></app-activity>
+            <!-- </div> -->
+            <!-- <div class="suggestion"> -->
+                <app-suggestion></app-suggestion>
+            <!-- </div> -->
+        </div>
+    </div>
+    <div class="footer">
+    <app-footer></app-footer>
+    </div>
+    </div>

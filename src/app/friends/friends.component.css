@@ -1,0 +1,59 @@
+.friends {
+    width: 100%;
+    max-width: 540px;
+    height: 37vh;
+    background-color: azure;
+    border-radius: 3vh;
+  }
+  .dp {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 10vh;
+  }
+  .sb {
+  width: 5px;
+  }
+  i{
+      font-size: 2vw;
+  }
+  .pro:hover{
+      cursor: pointer;
+  }
+  .fs{
+    font-size: .8rem;
+    font-weight: 500;
+  }
+  
+  .hd{
+    font-size: .9rem;
+  }
+  .txt{
+    font-size: .7rem;
+  }
+  i{
+    font-size:1.2rem;
+  }
+  .pic{
+    width:100%;
+    border-radius:2vh;
+  }
+  
+  .caption
+  {
+    font-size:.8rem;
+    font-weight: 500;
+  }
+  .sz{
+    font-size: 1.2 remF;
+  }
+  .inp{
+    height: 2.5rem;
+    font-size: .8rem;
+    background-color: #ececec;
+  }
+  .bttn{
+    height: 1.5rem;
+    padding: .2rem;
+    font-size: .7rem;
+  }
+  

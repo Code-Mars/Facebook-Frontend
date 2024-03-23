@@ -1,0 +1,25 @@
+<div class="container-fluid shadow profile d-flex m-0 flex-column align-items-center justify-content-evenly p-3 ">
+    <div class="pic mb-3">
+        <div class="cover d-flex align-items-center justify-content-center">
+            <img class="dp" src="http://localhost:9300/data/{{this.profile.profilePicture}}" alt="">
+        </div>
+    </div>
+    <div class="fw-bold hd">{{this.profile.fullName}}</div>
+    <div class="usn">@{{this.profile.username}}</div>
+    <div class="container-fluid d-flex text-center justify-content-evenly bg-grey p-2 radius mb-2">
+        <div class="d-flex flex-column">
+            <span class="fw-bold fs">250</span>
+            <span class="txt">Post</span>
+        </div>
+        <div class="d-flex flex-column">
+            <span class="fw-bold fs">2022</span>
+            <span class="txt">Followers</span>
+        </div>
+        <div class="d-flex flex-column">
+            <span class="fw-bold fs">590</span>
+            <span class="txt">Following</span>
+        </div>
+    </div>
+    <button type="submit" class=" btn btn-primary radius p-2 fs" (click)="change(profile.id)">My Profile</button>
+
+</div>

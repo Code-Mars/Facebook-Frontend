@@ -1,0 +1,18 @@
+<div class="friends shadow p-3 gap-2 d-flex flex-column m-auto" [style.height.vh]="height">
+    <div class="d-flex justify-content-between align-items-center">
+        <span class="fw-bold hd">Friends</span>
+        <span class="txt">See all</span>
+    </div>
+    <div class="container-fluid p-0 d-flex flex-column gap-2 list scrollbar fs" (mouseenter)="sb()" (mouseleave)="sb()">
+        <div *ngFor="let f of friends" class="d-flex gap-3 align-items-center justify-content-between">
+            <div class="d-flex gap-2 align-items-center cursor" (click)="change(f.id)">
+            <img class="dp" src="http://localhost:9300/data/{{f.profilePicture}}" alt="">
+            <span class="fs">{{f.fullName}}</span>
+        </div>
+            <div class="d-flex gap-1">
+            <button (click)="change(f.id)" class="btn btn-outline-primary bttn fs">Profile</button>
+            <div [class.sb]="flag"></div>
+        </div>
+        </div>
+    </div>
+</div>

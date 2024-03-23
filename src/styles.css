@@ -1,0 +1,87 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+img{
+    
+    filter: blur(0);
+-webkit-filter: blur(0);
+transform: translateZ(0);
+-webkit-transform: translateZ(0);
+}
+:root{
+  --bg-primary:rgb(13, 110, 253)
+}
+.poppins {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .smallLabel{
+    font-size: smaller;
+}
+.bg-grey{
+    background-color: #ececec;
+}
+.grey{
+    color: #d9d9d9;
+}
+.radius{
+    border-radius: 2vh!important;
+}
+.heading{
+    font-size:.9rem;
+    font-weight: 800;
+}
+.txt{
+    font-size: .7rem;
+    font-weight:600;
+    color: grey;
+}
+.fw{
+    font-weight: 500;
+    font-size: .9rem;
+}
+.scrollbar {
+    overflow-y: hidden;
+  }
+  .scrollbar:hover,
+  .scrollbar:active,
+  .scrollbar:focus {
+    overflow-y: auto;
+  }
+  
+  
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 15px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
+    
+  }
+  
+  .scrollbar::-webkit-scrollbar {
+    width: 5px;
+    background-color: #f5f5f5;
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: #464444;
+    border: 2px solid #555555;
+  }
+  input:hover, 
+  input:focus,
+  input:active{
+    box-shadow: none!important;
+    outline: none!important;
+  }
+  a:hover{
+  cursor: pointer;
+  }
+
+  .dp {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 10vh;
+  }
+  .cursor{
+    cursor: pointer;
+  }

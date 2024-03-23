@@ -1,0 +1,58 @@
+.update{
+    width: 100%;
+    min-height: 20vh;
+    background-color: azure;
+    border-radius: 3vh;
+}
+.txt{
+    font-size: large;
+    font-weight:500;
+    /* color: grey; */
+}
+
+.pic{
+    position: relative;
+}
+button[type="submit"]{
+    width: 100%;
+    border-radius: 2vh!important;
+}
+
+.dp{
+    position: relative;
+    height: 8rem;
+    width: 8rem;
+    border-radius: 15vh;
+    border: 3px solid rgb(13, 110, 253);
+}
+.back{
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  i:hover{
+    color: var(--bg-primary);
+    transition:color ease-in-out .1s; 
+}
+
+.darker {
+    /* transition: all 0.2s ease-in-out; */
+    z-index: 2;
+  }
+  
+ .darker:hover {
+    filter: brightness(50%);
+    z-index: 0;
+  }
+
+@keyframes pop{
+    50%  {transform: scale(1.2);}
+  }
+.edit{
+    position: relative;
+}
+.ico{
+    position: absolute;
+    z-index: 1;
+}
+  

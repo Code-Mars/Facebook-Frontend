@@ -1,0 +1,34 @@
+.sort{
+    width: 100%;
+    height:7vh;
+    /* background-color: azure; */
+}
+button[type="button"]{
+    border: none;
+    outline: none;
+    font-weight: 600;
+    font-size: small;
+}
+ul{
+    font-size: .7rem;
+    width: 10px;
+}
+.dropdown-menu {
+    min-width: 10px!important;
+    width: fit-content;
+    height: fit-content;
+    font-weight: 500;
+}
+.txt{
+    font-size: .8rem!important;
+}
+
+#hr{
+    width: 75%;
+}
+@media only screen and (max-width: 767px){
+    #hr{
+        width: 65%;
+    }
+
+}

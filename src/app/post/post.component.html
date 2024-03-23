@@ -1,0 +1,59 @@
+
+<div  *ngIf="!error && !success" class="post shadow d-flex flex-column justify-content-center p-3 gap-2">
+    <div class="d-flex gap-2">
+        <img class="dp" src="http://localhost:9300/data/{{user.profilePicture}}" alt="">
+        <input class="form-control rounded-pill i inp " type="text" name="text" [(ngModel)]="caption"  placeholder="Share something...">
+        <button  class="btn btn-outline-primary btn-sm rounded-pill  bttn" (click)="createPost()">Post</button>
+    </div>
+    <div class="d-flex justify-content-between">
+        <div class="d-flex gap-2">
+            <div class="d-flex align-items-center" >
+                <div type="button" [class.text-primary]="image" class="btn btn-sm" onclick="document.getElementById('image').click()" >
+                    <i class="bi bi-image"></i>
+                    Image
+                </div>
+            </div>
+            <div >
+                <div type="button" [class.text-primary]="video" class="btn btn-sm" onclick="document.getElementById('video').click()">
+                    <i class="bi bi-camera-reels"></i>
+                    Video
+                </div>
+            </div>
+            <div >
+                <div type="button" class="btn btn-sm" onclick="document.getElementById('customFile3').click()">
+                    <i class="bi bi-bar-chart"></i>
+                    Poll
+                </div>
+            </div>
+        </div>
+        <div class="d-flex align-items-center gap-1">
+            <div class="d-flex align-items-center">
+                <i *ngIf="privacy=='Public'" class='bi bi-globe-americas'></i>
+                <i *ngIf="privacy=='Friends'" class="bi bi-people-fill"></i>
+                <i *ngIf="privacy=='Private'" class="bi bi-person-fill-lock"></i>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-sm dropdown-toggle p-0 m-0" type="button" id="dropdownMenu2"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    {{privacy}}
+                </button>
+                <ul class="dropdown-menu p-1" aria-labelledby="dropdownMenu2">
+                    <li><button (click)="ddClick('Public')" class="dropdown-item px-0 py-0">Public</button></li>
+                    <li><button (click)="ddClick('Friends')"class="dropdown-item px-0 py-0">Friends</button></li>
+                    <li><button (click)="ddClick('Private')"class="dropdown-item px-0 py-0">Private</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div  *ngIf="success" class="post shadow d-flex align-items-center fw-bold justify-content-center p-3 gap-2">{{success}}<i class="bi bi-check-all text-success fs-3"></i></div>
+<div  *ngIf="error" class="post shadow d-flex  align-items-center justify-content-center p-3 gap-2 fw-bold">{{error}}<i class="bi bi-exclamation-circle text-danger fs-3"></i></div>
+
+
+
+<input type="file" class="form-control visually-hidden" name="image" id="image" accept="image/*" multiple
+ (change)="onChange($event)">
+<input type="file" class="form-control visually-hidden" name="video" id="video" accept="video/*" multiple
+ (change)="onChange($event)">
+

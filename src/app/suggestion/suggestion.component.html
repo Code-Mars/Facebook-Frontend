@@ -1,0 +1,20 @@
+<div class="suggestions shadow p-3 gap-2 d-flex flex-column ">
+    
+    <div class="d-flex justify-content-between align-items-center">
+        <span class="fw-bold hd">Suggested for you</span>
+        <span class="txt">See all</span>
+    </div>
+    <div class="container-fluid p-0 d-flex flex-column gap-2 list scrollbar fs" (mouseenter)="sb()" (mouseleave)="sb()">
+        <div *ngFor="let f of suggest" class="d-flex gap-3 align-items-center justify-content-between">
+            <div class="d-flex gap-2 align-items-center pointer" (click)="change(f.id)">
+                <img class="dp" src="http://localhost:9300/data/{{f.profilePicture}}" alt="">
+                <span class="fs">{{f.fullName}}</span>
+            </div>
+            <div class="d-flex gap-2">
+                <a class="link" (click)="addFriend(f.id, $event)"><i (mouseenter)="hover($event)"
+                        (mouseleave)="out($event)" class="bi bi-person-plus text-primary"></i></a>
+                <div [class.sb]="flag"></div>
+            </div>
+        </div>
+    </div>
+</div>

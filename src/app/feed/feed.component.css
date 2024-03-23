@@ -1,0 +1,164 @@
+
+.cm{
+    height:30px;
+    width:30px;
+    border-radius: 8vh;
+  }
+  .cursor{
+    cursor: pointer;
+  }
+  .txt {
+    color: grey;
+  }
+  .xsm{
+    font-size: x-small;
+    font-weight: 500;
+  }
+  .cmmt{
+    font-size: x-small;
+    font-weight: 500;
+    color: grey;
+  }
+ 
+  #add{    
+    /* background-color: #d6d6d6; */
+    font-size: small;
+    font-weight: 500;
+    background-color: #ececec;
+}
+#dropdownMenu2:hover,
+#dropdownMenu2:focus,
+#dropdownMenu2:active,
+#dropdownMenu2:not(hover),
+#dropdownMenu2:not(focus),
+#dropdownMenu2:not(active)
+{
+    outline: none;
+    border: none;
+}
+.dropdown-menu {
+  min-width: 10px!important;
+  width: fit-content;
+  height: fit-content;
+  font-weight: 500;
+}
+.dropdown-item:hover{
+  background-color: #ececec;
+}
+#dd{
+  width: 7vw;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+#dd:hover,
+#dd:focus,
+#dd:active{
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+ul{
+  font-size: .7rem;
+  width: 10px;
+}
+i{
+  
+    font-weight: 700;
+  }
+  i:hover{
+    cursor: pointer;
+  }
+  #like:hover{
+    cursor: pointer;
+  }
+  #comment:hover{
+    cursor: pointer;
+  }
+  #commentSection{
+    animation: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s 1 slideInFromLeft;
+    
+    /* background: #333;
+    padding: 30px; */
+  }
+  
+  @keyframes slideInFromLeft {
+    0% {
+    transform: translateX(20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+#added{
+  font-size: small;
+}
+
+
+.sb {
+  width: 5px;
+}
+
+.pro:hover{
+  cursor: pointer;
+}
+
+
+
+.inp{
+  height: 3vw;
+  font-size: 1vw;
+  background-color: #ececec;
+}
+/* .bttn{
+  width: 7vw;
+  height: 2vw;
+  padding: .3vw;
+  border-radius: 5vh;
+  font-size: .9vw;
+} */
+
+/*****************/
+
+.feed{
+    width: 100%;
+    background-color: azure;
+    border-radius: 3vh;
+}
+.fs{
+  font-size: .7rem;
+  font-weight: 500;
+}
+
+.hd{
+  font-size: .9rem;
+}
+.txt{
+  font-size: .7rem;
+}
+i{
+  font-size:1.2rem;
+}
+.pic{
+  width:100%;
+  border-radius:2vh;
+}
+
+.caption
+{
+  font-size:.8rem;
+  font-weight: 500;
+}
+.sz{
+  font-size: 1.2 rem;
+}
+.inp{
+  height: 2.5rem;
+  font-size: .8rem;
+  background-color: #ececec;
+}
+.bttn{
+  height: 2.5rem;
+  padding: .2rem;
+  font-size: .7rem;
+}

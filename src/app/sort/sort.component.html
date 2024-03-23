@@ -1,0 +1,17 @@
+<div class="sort d-flex align-items-center justify-content-between gap-2">
+    <div id="hr">
+        <hr style="border: 1px solid black;">
+    </div>
+    <div class="d-flex align-items-center gap-1">
+        <div class="txt">Sort by : </div>
+        <div class="dropdown">
+            <button class="btn btn-sm dropdown-toggle p-0 m-0 txt" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ss}}
+            </button>
+            <ul class="dropdown-menu p-1" aria-labelledby="dropdownMenu2">
+              <li><button (click)="ddClick('Recent')" class="dropdown-item px-0 py-0">Recent</button></li>
+                    <li><button (click)="ddClick('Earlier')"class="dropdown-item px-0 py-0">Earlier</button></li>
+                    <li><button (click)="ddClick('Likes')"class="dropdown-item px-0 py-0">Likes</button></li>
+            </ul>
+          </div>
+    </div>
